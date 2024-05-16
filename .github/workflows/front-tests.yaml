@@ -1,0 +1,42 @@
+name: Front test
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  
+jobs:
+  Frontend-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: front
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run the tests
+        run: npm run test:prod
+      
+      - name: Get and upload coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: karma-report
+          path: front/coverage
