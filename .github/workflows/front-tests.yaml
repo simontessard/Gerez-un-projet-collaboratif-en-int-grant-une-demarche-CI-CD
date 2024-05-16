@@ -33,7 +33,7 @@ jobs:
         run: npm install
 
       - name: Run the tests
-        run: npm run test:prod
+        run: npm run test
       
       - name: Get and upload coverage report
         uses: actions/upload-artifact@v3
