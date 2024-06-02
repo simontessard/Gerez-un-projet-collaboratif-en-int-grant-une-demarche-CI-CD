@@ -73,7 +73,7 @@ jobs:
           path: front/coverage/bobapp
 
   SonarCloud-Backend:
-    name: Analyse avec SonarCloud
+    name: Analyse avec SonarCloud (Backend)
     runs-on: ubuntu-latest
     needs: [ Frontend-test, Backend-test ]
 
@@ -114,7 +114,7 @@ jobs:
   SonarCloud-Frontend:
     name: Analyse avec SonarCloud (Frontend)
     runs-on: ubuntu-latest
-    needs: [Frontend-test]
+    needs: [Frontend-test, Backend-test]
 
     steps:
       - name: Checkout code
