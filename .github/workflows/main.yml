@@ -1,4 +1,4 @@
-name: Back and Front Test with SonarCloud
+name: Back and Front Tests with SonarCloud
 
 on:
   push:
