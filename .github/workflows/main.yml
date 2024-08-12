@@ -109,7 +109,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_BACK }}
         run: | 
           cd back 
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=simontessard_Gerez-un-projet-collaboratif-en-int-grant-une-demarche-CI-CD
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=simontessard_bobapp-back
           
   SonarCloud-Frontend-Analysis:
     name: Analyse avec SonarCloud (Frontend)
