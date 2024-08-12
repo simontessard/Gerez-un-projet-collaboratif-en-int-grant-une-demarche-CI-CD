@@ -153,7 +153,11 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
         run: |
           cd front
-          npm run sonar
+          sonar-scanner \
+          -Dsonar.projectKey=simontessard_bobapp-front \
+          -Dsonar.organization=simontessard \
+          -Dsonar.branch.name=${{ github.ref_name }} \
+          -X
           
   Docker-Deploy:
     name: Deploy to Docker Hub
