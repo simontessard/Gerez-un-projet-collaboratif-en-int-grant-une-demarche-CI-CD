@@ -153,7 +153,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_FRONT }}
         run: |
           cd front
-          sonar-scanner \
+          npx sonar-scanner \
           -Dsonar.projectKey=simontessard_bobapp-front \
           -Dsonar.organization=simontessard \
           -Dsonar.branch.name=${{ github.ref_name }} \
